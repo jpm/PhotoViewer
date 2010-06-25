@@ -262,7 +262,8 @@
 
 - (void)setNavTitle{
 	if ([self.photoSource count] > 1) {
-		self.title = [NSString stringWithFormat:@"%i of %i", pageIndex+1, [self.photoSource count]];
+		NSString *formatString = NSLocalizedString(@"%1$i of %2$i", @"Picture X out of Y total.");
+		self.title = [NSString stringWithFormat:formatString, pageIndex+1, [self.photoSource count]];
 	} else {
 		self.title = @"";
 	}
@@ -551,9 +552,17 @@
 	
 	UIActionSheet *actionSheet;
 	if ([MFMailComposeViewController canSendMail]) {
-		actionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Save", @"Copy", @"Email", nil];
+		actionSheet = [[UIActionSheet alloc] initWithTitle:@""
+																							delegate:self 
+																		 cancelButtonTitle:NSLocalizedString(@"Cancel", nil)
+																destructiveButtonTitle:nil 
+																		 otherButtonTitles:NSLocalizedString(@"Save", nil), NSLocalizedString(@"Copy", nil), NSLocalizedString(@"Email", nil), nil];
 	} else {
-		actionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Save", @"Copy", nil];
+		actionSheet = [[UIActionSheet alloc] initWithTitle:@"" 
+																							delegate:self 
+																		 cancelButtonTitle:NSLocalizedString(@"Cancel", nil)
+																destructiveButtonTitle:nil 
+																		 otherButtonTitles:NSLocalizedString(@"Save", nil), NSLocalizedString(@"Copy", nil), nil];
 	}
 	
 	actionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
