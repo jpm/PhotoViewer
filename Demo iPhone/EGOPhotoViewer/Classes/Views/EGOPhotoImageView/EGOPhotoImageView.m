@@ -318,7 +318,8 @@
 - (void)dealloc {
 	
 	NSLog(@"dealloc EGOPhotoImageView");
-	
+  
+	[[EGOImageLoader sharedImageLoader] removeObserver:self forURL:self.photo.imageURL];
 	[[EGOImageLoader sharedImageLoader] cancelLoadForURL:self.photo.imageURL];
 	
 	[_imageView release]; _imageView=nil;
