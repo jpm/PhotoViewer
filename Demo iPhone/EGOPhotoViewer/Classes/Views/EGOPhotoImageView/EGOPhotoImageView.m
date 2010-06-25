@@ -115,6 +115,7 @@
 	if (self.imageView.image != nil) {
 		[activityView stopAnimating];
 		self.userInteractionEnabled = YES;
+		[self.scrollView enableZooming];
 		
 		[[NSNotificationCenter defaultCenter] postNotificationName:@"EGOPhotoDidFinishLoading" object:[NSDictionary dictionaryWithObjectsAndKeys:self.photo, @"photo", [NSNumber numberWithBool:NO], @"failed", nil]];
 		
@@ -143,6 +144,7 @@
 	[[self layer] addAnimation:[self fadeAnimation] forKey:@"opacity"];
 	
 	self.userInteractionEnabled = YES;
+	[self.scrollView enableZooming];
 
 }
 
@@ -195,7 +197,8 @@
 	
 	self.imageView.image = kPhotoErrorPlaceholder;
 	[self layoutScrollViewAnimated:NO];
-	self.userInteractionEnabled = NO;
+	self.userInteractionEnabled = YES;
+	[self.scrollView disableZooming];
 	[activityView stopAnimating];
 	
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"EGOPhotoDidFinishLoading" object:[NSDictionary dictionaryWithObjectsAndKeys:self.photo, @"photo", [NSNumber numberWithBool:YES], @"failed", nil]];
@@ -309,7 +312,7 @@
 	} else {
 		[self layoutScrollViewAnimated:YES];
 	}
-}	
+}
 
 
 #pragma mark -

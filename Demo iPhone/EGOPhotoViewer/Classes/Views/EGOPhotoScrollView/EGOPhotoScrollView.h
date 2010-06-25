@@ -28,7 +28,9 @@
 
 
 @interface EGOPhotoScrollView : UIScrollView {
-
 }
+
+- (void)disableZooming;
+- (void)enableZooming;
 
 @end

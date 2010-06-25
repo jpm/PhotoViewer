@@ -27,8 +27,9 @@
 #import "EGOPhotoScrollView.h"
 #import "EGOPhotoImageView.h"
 
-@implementation EGOPhotoScrollView
+#define kMaximumZoomScale 3.0f
 
+@implementation EGOPhotoScrollView
 
 - (id)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
@@ -37,7 +38,7 @@
 		self.scrollEnabled = YES;
 		self.pagingEnabled = NO;
 		self.clipsToBounds = NO;
-		self.maximumZoomScale = 3.0f;
+		self.maximumZoomScale = kMaximumZoomScale;
 		self.minimumZoomScale = 1.0f;
 		self.showsVerticalScrollIndicator = NO;
 		self.showsHorizontalScrollIndicator = NO;
@@ -55,7 +56,7 @@
 }
 
 - (void)zoomRectWithCenter:(CGPoint)center{
-	
+
 	if (self.zoomScale > 1.0f) {
 		//  zoom out
 		[((EGOPhotoImageView*)self.superview) killScrollViewZoom];
@@ -93,6 +94,17 @@
 		[NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(toggleBars) object:nil];
 		[self zoomRectWithCenter:[[touches anyObject] locationInView:self]];
 	}
+}
+
+#pragma mark -
+#pragma mark Disable/enabling zooming
+
+- (void)disableZooming {
+	self.maximumZoomScale = 1.0;
+}
+
+- (void)enableZooming {
+	self.maximumZoomScale = kMaximumZoomScale;
 }
 
 #pragma mark -
