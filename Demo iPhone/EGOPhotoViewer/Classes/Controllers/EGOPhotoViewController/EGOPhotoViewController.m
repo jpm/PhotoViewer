@@ -20,6 +20,7 @@
 - (void)layoutScrollViewSubviewsAnimated:(BOOL)animated;
 - (void)setupScrollViewContentSize;
 - (void)setNavTitle;
+- (void)setStatusBarHidden:(BOOL)isHidden withAnimation:(BOOL)withAnimation;
 - (void)moveToPhotoAtIndex:(NSInteger)index animated:(BOOL)animated;
 - (NSInteger)centerPhotoIndex;
 - (void)queueReusablePhotoViewAtIndex:(NSInteger)theIndex;
@@ -161,7 +162,7 @@
 		self.navigationController.toolbar.translucent = _oldNavBarTranslucent;
 	}
 	
-	[[UIApplication sharedApplication] setStatusBarHidden:NO animated:animated];
+	[self setStatusBarHidden:NO withAnimation:animated];
 	[[UIApplication sharedApplication] setStatusBarStyle:_oldStatusBarSyle animated:animated];
 	
 	[self.navigationController setToolbarHidden:_oldToolBarHidden animated:animated];
@@ -227,13 +228,13 @@
 		}
 		[self.captionView setCaptionHidden:YES];
 		[self killTimer];
-		[[UIApplication sharedApplication] setStatusBarHidden:YES animated:YES];
+		[self setStatusBarHidden:YES withAnimation:YES];
 		[self.navigationController setNavigationBarHidden:YES animated:YES];
 		[self.navigationController setToolbarHidden:YES animated:YES];
 	} else {
 		[self.captionView setCaptionHidden:NO];
 		[self resetTimer];		
-		[[UIApplication sharedApplication] setStatusBarHidden:NO animated:YES];
+		[self setStatusBarHidden:NO withAnimation:YES];
 		[self.navigationController setNavigationBarHidden:NO animated:YES];
 		[self.navigationController setToolbarHidden:NO animated:YES];
 	}
@@ -271,6 +272,14 @@
 	[self.captionView setCaptionText:[[self.photoSource photoAtIndex:[self centerPhotoIndex]] imageName]];
 }
 
+- (void)setStatusBarHidden:(BOOL)isHidden withAnimation:(BOOL)withAnimation{
+  #ifdef __IPHONE_3_2
+	  [[UIApplication sharedApplication] setStatusBarHidden:isHidden withAnimation:withAnimation];
+  #else
+	  [[UIApplication sharedApplication] setStatusBarHidden:isHidden animated:withAnimation];
+  #endif
+}
+
 - (void)photoViewDidFinishLoading:(NSNotification*)notification{
 	
 	if (notification == nil) return;
@@ -279,7 +288,7 @@
 		if ([[[notification object] objectForKey:@"failed"] boolValue]) {
 			if ([self.navigationController isNavigationBarHidden]) {
 				[self killTimer];
-				[[UIApplication sharedApplication] setStatusBarHidden:NO animated:YES];
+				[self setStatusBarHidden:NO withAnimation:YES];
 				[self.navigationController setNavigationBarHidden:NO animated:YES];
 				[self.navigationController setToolbarHidden:NO animated:YES];
 			} 
