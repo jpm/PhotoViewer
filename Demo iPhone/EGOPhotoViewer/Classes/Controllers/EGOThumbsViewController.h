@@ -6,10 +6,6 @@
 //  Copyright 2010 Henrik Nyh. All rights reserved.
 //
 
-// TODO:
-// - better thumb placeholders
-// - cleanup whitespace
-
 #import <UIKit/UIKit.h>
 #import "EGOPhotoSource.h"
 #import "EGOThumbsScrollView.h"
