@@ -32,10 +32,10 @@
 		3A059719110F3D8000258D5E /* EGOPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A059718110F3D8000258D5E /* EGOPhotoViewController.m */; };
 		3A059722110F3DEE00258D5E /* EGOPhotoViewer-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A059721110F3DEE00258D5E /* EGOPhotoViewer-Info.plist */; };
 		3A05973A110F3E8900258D5E /* EGOPhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A059739110F3E8900258D5E /* EGOPhotoViewController.xib */; };
-		AF070FBF11D5F7E200C1EE00 /* EGOThumbImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF070FBE11D5F7E200C1EE00 /* EGOThumbImageView.m */; };
-		AF070FC511D5F90600C1EE00 /* EGOThumbsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF070FC411D5F90600C1EE00 /* EGOThumbsViewController.m */; };
-		AF070FD511D5F96400C1EE00 /* EGOThumbsScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF070FD411D5F96400C1EE00 /* EGOThumbsScrollView.m */; };
-		AF07106511D6029900C1EE00 /* EGOStoredBarStyles.m in Sources */ = {isa = PBXBuildFile; fileRef = AF07106411D6029900C1EE00 /* EGOStoredBarStyles.m */; };
+		AF07115C11D6170100C1EE00 /* EGOThumbsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF07115B11D6170100C1EE00 /* EGOThumbsViewController.m */; };
+		AF07116811D6174300C1EE00 /* EGOStoredBarStyles.m in Sources */ = {isa = PBXBuildFile; fileRef = AF07116711D6174300C1EE00 /* EGOStoredBarStyles.m */; };
+		AF07116F11D6176B00C1EE00 /* EGOThumbImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF07116B11D6176B00C1EE00 /* EGOThumbImageView.m */; };
+		AF07117011D6176B00C1EE00 /* EGOThumbsScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF07116E11D6176B00C1EE00 /* EGOThumbsScrollView.m */; };
 		D071EF5C11025D3F00CB086D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D071EF5B11025D3F00CB086D /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
@@ -78,14 +78,14 @@
 		3A059718110F3D8000258D5E /* EGOPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOPhotoViewController.m; sourceTree = "<group>"; };
 		3A059721110F3DEE00258D5E /* EGOPhotoViewer-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "EGOPhotoViewer-Info.plist"; path = "../EGOPhotoViewer-Info.plist"; sourceTree = "<group>"; };
 		3A059739110F3E8900258D5E /* EGOPhotoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EGOPhotoViewController.xib; sourceTree = "<group>"; };
-		AF070FBD11D5F7E200C1EE00 /* EGOThumbImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOThumbImageView.h; sourceTree = "<group>"; };
-		AF070FBE11D5F7E200C1EE00 /* EGOThumbImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOThumbImageView.m; sourceTree = "<group>"; };
-		AF070FC311D5F90600C1EE00 /* EGOThumbsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOThumbsViewController.h; sourceTree = "<group>"; };
-		AF070FC411D5F90600C1EE00 /* EGOThumbsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOThumbsViewController.m; sourceTree = "<group>"; };
-		AF070FD311D5F96400C1EE00 /* EGOThumbsScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOThumbsScrollView.h; sourceTree = "<group>"; };
-		AF070FD411D5F96400C1EE00 /* EGOThumbsScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOThumbsScrollView.m; sourceTree = "<group>"; };
-		AF07106311D6029900C1EE00 /* EGOStoredBarStyles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOStoredBarStyles.h; sourceTree = "<group>"; };
-		AF07106411D6029900C1EE00 /* EGOStoredBarStyles.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOStoredBarStyles.m; sourceTree = "<group>"; };
+		AF07115A11D6170100C1EE00 /* EGOThumbsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGOThumbsViewController.h; path = Classes/Controllers/EGOThumbsViewController/EGOThumbsViewController.h; sourceTree = SOURCE_ROOT; };
+		AF07115B11D6170100C1EE00 /* EGOThumbsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EGOThumbsViewController.m; path = Classes/Controllers/EGOThumbsViewController/EGOThumbsViewController.m; sourceTree = SOURCE_ROOT; };
+		AF07116611D6174300C1EE00 /* EGOStoredBarStyles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOStoredBarStyles.h; sourceTree = "<group>"; };
+		AF07116711D6174300C1EE00 /* EGOStoredBarStyles.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOStoredBarStyles.m; sourceTree = "<group>"; };
+		AF07116A11D6176B00C1EE00 /* EGOThumbImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOThumbImageView.h; sourceTree = "<group>"; };
+		AF07116B11D6176B00C1EE00 /* EGOThumbImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOThumbImageView.m; sourceTree = "<group>"; };
+		AF07116D11D6176B00C1EE00 /* EGOThumbsScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOThumbsScrollView.h; sourceTree = "<group>"; };
+		AF07116E11D6176B00C1EE00 /* EGOThumbsScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOThumbsScrollView.m; sourceTree = "<group>"; };
 		D071EF5B11025D3F00CB086D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -177,7 +177,7 @@
 		3A0596E0110F3D2000258D5E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				AF070FC211D5F8F100C1EE00 /* EGOThumbsViewController */,
+				AF07115911D6170100C1EE00 /* EGOThumbsViewController */,
 				3A059716110F3D8000258D5E /* EGOPhotoViewController */,
 				3A0596E2110F3D2000258D5E /* RootViewController */,
 			);
@@ -205,7 +205,7 @@
 		3A0596E8110F3D2000258D5E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				AF07106211D6027900C1EE00 /* EGOStoredBarStyles */,
+				AF07116511D6174300C1EE00 /* EGOStoredBarStyles */,
 				3A0596E9110F3D2000258D5E /* EGOPhoto */,
 				3A0596EC110F3D2000258D5E /* EGOPhotoSource */,
 			);
@@ -233,8 +233,8 @@
 		3A0596EF110F3D2000258D5E /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				AF070FBC11D5F7CA00C1EE00 /* EGOThumbImageView */,
-				AF070FD211D5F94D00C1EE00 /* EGOThumbsScrollView */,
+				AF07116911D6176B00C1EE00 /* EGOThumbImageView */,
+				AF07116C11D6176B00C1EE00 /* EGOThumbsScrollView */,
 				3A0596F0110F3D2000258D5E /* EGOPhotoCaptionView */,
 				3A0596F3110F3D2000258D5E /* EGOPhotoImageView */,
 				3A0596F6110F3D2000258D5E /* EGOPhotoScrollView */,
@@ -307,40 +307,40 @@
 			path = EGOPhotoViewController;
 			sourceTree = "<group>";
 		};
-		AF070FBC11D5F7CA00C1EE00 /* EGOThumbImageView */ = {
+		AF07115911D6170100C1EE00 /* EGOThumbsViewController */ = {
 			isa = PBXGroup;
 			children = (
-				AF070FBD11D5F7E200C1EE00 /* EGOThumbImageView.h */,
-				AF070FBE11D5F7E200C1EE00 /* EGOThumbImageView.m */,
+				AF07115A11D6170100C1EE00 /* EGOThumbsViewController.h */,
+				AF07115B11D6170100C1EE00 /* EGOThumbsViewController.m */,
 			);
-			name = EGOThumbImageView;
+			path = EGOThumbsViewController;
 			sourceTree = "<group>";
 		};
-		AF070FC211D5F8F100C1EE00 /* EGOThumbsViewController */ = {
+		AF07116511D6174300C1EE00 /* EGOStoredBarStyles */ = {
 			isa = PBXGroup;
 			children = (
-				AF070FC311D5F90600C1EE00 /* EGOThumbsViewController.h */,
-				AF070FC411D5F90600C1EE00 /* EGOThumbsViewController.m */,
+				AF07116611D6174300C1EE00 /* EGOStoredBarStyles.h */,
+				AF07116711D6174300C1EE00 /* EGOStoredBarStyles.m */,
 			);
-			name = EGOThumbsViewController;
+			path = EGOStoredBarStyles;
 			sourceTree = "<group>";
 		};
-		AF070FD211D5F94D00C1EE00 /* EGOThumbsScrollView */ = {
+		AF07116911D6176B00C1EE00 /* EGOThumbImageView */ = {
 			isa = PBXGroup;
 			children = (
-				AF070FD311D5F96400C1EE00 /* EGOThumbsScrollView.h */,
-				AF070FD411D5F96400C1EE00 /* EGOThumbsScrollView.m */,
+				AF07116A11D6176B00C1EE00 /* EGOThumbImageView.h */,
+				AF07116B11D6176B00C1EE00 /* EGOThumbImageView.m */,
 			);
-			name = EGOThumbsScrollView;
+			path = EGOThumbImageView;
 			sourceTree = "<group>";
 		};
-		AF07106211D6027900C1EE00 /* EGOStoredBarStyles */ = {
+		AF07116C11D6176B00C1EE00 /* EGOThumbsScrollView */ = {
 			isa = PBXGroup;
 			children = (
-				AF07106311D6029900C1EE00 /* EGOStoredBarStyles.h */,
-				AF07106411D6029900C1EE00 /* EGOStoredBarStyles.m */,
+				AF07116D11D6176B00C1EE00 /* EGOThumbsScrollView.h */,
+				AF07116E11D6176B00C1EE00 /* EGOThumbsScrollView.m */,
 			);
-			name = EGOStoredBarStyles;
+			path = EGOThumbsScrollView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -423,10 +423,10 @@
 				3A05970A110F3D2700258D5E /* EGOImageLoadConnection.m in Sources */,
 				3A05970B110F3D2700258D5E /* EGOImageLoader.m in Sources */,
 				3A059719110F3D8000258D5E /* EGOPhotoViewController.m in Sources */,
-				AF070FBF11D5F7E200C1EE00 /* EGOThumbImageView.m in Sources */,
-				AF070FC511D5F90600C1EE00 /* EGOThumbsViewController.m in Sources */,
-				AF070FD511D5F96400C1EE00 /* EGOThumbsScrollView.m in Sources */,
-				AF07106511D6029900C1EE00 /* EGOStoredBarStyles.m in Sources */,
+				AF07115C11D6170100C1EE00 /* EGOThumbsViewController.m in Sources */,
+				AF07116811D6174300C1EE00 /* EGOStoredBarStyles.m in Sources */,
+				AF07116F11D6176B00C1EE00 /* EGOThumbImageView.m in Sources */,
+				AF07117011D6176B00C1EE00 /* EGOThumbsScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
