@@ -11,7 +11,7 @@
 @class EGOThumbsViewController;
 
 @interface EGOThumbsScrollView : UIScrollView {
-	EGOPhotoSource *_photoSource;
+	EGOPhotoSource *photoSource;
   EGOThumbsViewController *controller;
   UIInterfaceOrientation laidOutForOrientation;
 }
