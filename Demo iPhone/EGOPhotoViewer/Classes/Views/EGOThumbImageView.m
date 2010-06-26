@@ -10,7 +10,6 @@
 #import <QuartzCore/QuartzCore.h>
 
 #define kThumbBorderColor [UIColor colorWithWhite:0.85 alpha:1.0]
-// TODO: Replace these.
 #define kPhotoErrorPlaceholder [UIImage imageNamed:@"error_placeholder.png"]
 #define kPhotoLoadingPlaceholder [UIImage imageNamed:@"photo_placeholder.png"]
 
