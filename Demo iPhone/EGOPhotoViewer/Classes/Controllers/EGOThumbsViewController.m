@@ -11,7 +11,7 @@
 
 @implementation EGOThumbsViewController
 
-@synthesize photoSource=_photoSource;
+@synthesize photoSource=_photoSource, storedStyles;
 
 - (id)initWithPhotoSource:(EGOPhotoSource*)aSource {
   if (self = [super init]) {
@@ -38,6 +38,27 @@
 - (void)viewDidLoad {
   [super viewDidLoad]; 
 }
+
+- (void)viewWillAppear:(BOOL)animated{
+	[super viewWillAppear:animated];
+  
+  if (!self.storedStyles) {
+    self.storedStyles = [EGOStoredBarStyles storeFromController:self];
+  }
+	
+	self.navigationController.navigationBar.tintColor = nil;
+	self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+	self.navigationController.navigationBar.translucent = YES;
+	
+	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent animated:YES];
+}
+
+- (void)viewWillDisappear:(BOOL)animated{  
+  if (self.storedStyles) {
+    [self.storedStyles restoreToController:self withAnimation:animated];
+  }
+}
+
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
   // FIXME: Photo view looks messed up if opened from landscape.
@@ -70,6 +91,7 @@
 - (void)dealloc {
   [_photoSource release], _photoSource = nil;
   [_scrollView release], _scrollView = nil;
+  self.storedStyles = nil;
   [super dealloc];
 }
 

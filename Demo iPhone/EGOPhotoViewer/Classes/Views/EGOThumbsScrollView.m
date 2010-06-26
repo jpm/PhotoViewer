@@ -75,7 +75,6 @@
     int tag = kThumbTagOffset + i;
     
     EGOThumbImageView *thumbView = (EGOThumbImageView *)[self viewWithTag:tag];
-    NSLog(@"thumb view is %@", thumbView);
     if (!thumbView) {    
       EGOPhoto *photo = [self.photoSource photoAtIndex:i];
       thumbView = [[EGOThumbImageView alloc] initWithFrame:CGRectMake(x, y, thumbnailWidth, thumbnailHeight)];
