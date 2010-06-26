@@ -73,7 +73,8 @@
 	if ([notification userInfo] == nil) return;
 	if(![[[notification userInfo] objectForKey:@"imageURL"] isEqual:self.photo.thumbURL]) return;
   
-  self.imageView.image = [[notification userInfo] objectForKey:@"image"];  
+  self.imageView.image = [[notification userInfo] objectForKey:@"image"];
+	[activityView stopAnimating];
 }
 
 - (void)imageLoaderDidFailToLoad:(NSNotification*)notification {

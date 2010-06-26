@@ -66,9 +66,8 @@
 	return NO;
 }
 
-// TODO: Remove this! Just for debugging.
 - (NSURL *)thumbURL {
-  return _imageURL;
+  return _thumbURL ? _thumbURL : _imageURL;
 }
 
 - (NSString*)description{
