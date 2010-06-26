@@ -32,8 +32,8 @@
 @implementation EGOPhotoScrollView
 
 - (id)initWithFrame:(CGRect)frame {
-    if (self = [super initWithFrame:frame]) {
-        // Initialization code
+		if (self = [super initWithFrame:frame]) {
+				// Initialization code
 		
 		self.scrollEnabled = YES;
 		self.pagingEnabled = NO;
@@ -51,17 +51,17 @@
 		self.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleTopMargin;
 		self.decelerationRate = UIScrollViewDecelerationRateFast;
 		
-    }
-    return self;
+		}
+		return self;
 }
 
 - (void)zoomRectWithCenter:(CGPoint)center{
 
 	if (self.zoomScale > 1.0f) {
-		//  zoom out
+		//	zoom out
 		[((EGOPhotoImageView*)self.superview) killScrollViewZoom];
 	} else {
-		//  zoom in
+		//	zoom in
 		CGFloat xCoor = center.x - 50.0f;
 		CGFloat yCoor = center.y - 50.0f;
 		
@@ -111,7 +111,7 @@
 #pragma mark Dealloc
 
 - (void)dealloc {
-    [super dealloc];
+		[super dealloc];
 }
 
 

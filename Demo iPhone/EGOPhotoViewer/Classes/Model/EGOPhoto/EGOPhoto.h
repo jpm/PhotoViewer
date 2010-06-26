@@ -34,9 +34,8 @@
 	UIImage *_image;
 	UIImage *_thumb;
 	NSString *_imageName;
-  
+	
 }
-
 
 /*
  * with thumbmail

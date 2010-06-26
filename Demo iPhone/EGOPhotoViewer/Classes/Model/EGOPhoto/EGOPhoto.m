@@ -26,21 +26,17 @@
 
 #import "EGOPhoto.h"
 
-
 @implementation EGOPhoto
 
 @synthesize imageURL=_imageURL, thumbURL=_thumbURL, image=_image, thumb=_thumb, imageName=_imageName;
 
 - (id)initWithImageURL:(NSURL*)aURL thumbURL:(NSURL*)aThumbURL name:(NSString*)aName {
-	
 	if (self = [super init]) {
-		
 		_imageURL=[aURL retain];
 		_thumbURL=[aThumbURL retain];
 		_imageName=[aName retain];
-    
 	}
-  
+	
 	return self;
 }
 
@@ -62,12 +58,12 @@
 			return YES;
 		}
 	}
-  
+	
 	return NO;
 }
 
 - (NSURL *)thumbURL {
-  return _thumbURL ? _thumbURL : _imageURL;
+	return _thumbURL ? _thumbURL : _imageURL;
 }
 
 - (NSString*)description{

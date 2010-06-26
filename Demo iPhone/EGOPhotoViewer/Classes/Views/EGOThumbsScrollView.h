@@ -12,8 +12,8 @@
 
 @interface EGOThumbsScrollView : UIScrollView {
 	EGOPhotoSource *photoSource;
-  EGOThumbsViewController *controller;
-  UIInterfaceOrientation laidOutForOrientation;
+	EGOThumbsViewController *controller;
+	UIInterfaceOrientation laidOutForOrientation;
 }
 
 @property(nonatomic, retain) EGOPhotoSource *photoSource;

@@ -27,12 +27,12 @@
 	UIBarButtonItem *leftButton;
 	UIBarButtonItem *rightButton;
 	UIBarButtonItem *actionButton;
-  
-  EGOStoredBarStyles *storedStyles;
+	
+	EGOStoredBarStyles *storedStyles;
 }
 
-- (id)initWithPhotoSource:(EGOPhotoSource*)aSource;  //  multiple photos
-- (id)initWithImageURL:(NSURL*)aURL;  //  single photo view
+- (id)initWithPhotoSource:(EGOPhotoSource*)aSource;	//	multiple photos
+- (id)initWithImageURL:(NSURL*)aURL;	//	single photo view
 
 - (void)setStatusBarHidden:(BOOL)isHidden withAnimation:(BOOL)withAnimation;
 - (void)moveToPhotoAtIndex:(NSInteger)index animated:(BOOL)animated;

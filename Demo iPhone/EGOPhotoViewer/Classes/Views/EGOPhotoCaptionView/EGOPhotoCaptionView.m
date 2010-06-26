@@ -30,7 +30,7 @@
 @implementation EGOPhotoCaptionView
 
 - (id)initWithFrame:(CGRect)frame {
-    if (self = [super initWithFrame:frame]) {
+		if (self = [super initWithFrame:frame]) {
 		
 		self.backgroundColor = [UIColor colorWithWhite:0.0f alpha:0.3f];
 		self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
@@ -44,9 +44,9 @@
 		_textLabel.shadowOffset = CGSizeMake(0.0f, 1.0f);
 		[self addSubview:_textLabel];
 		[_textLabel release];
-					  
-    }
-    return self;
+						
+		}
+		return self;
 }
 
 - (void)layoutSubviews{
@@ -100,7 +100,7 @@
 }
 
 - (void)dealloc {
-    [super dealloc];
+		[super dealloc];
 }
 
 

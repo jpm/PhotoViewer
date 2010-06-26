@@ -31,7 +31,6 @@
 @interface EGOPhotoSource : NSObject {
 @private
 	NSArray *_photos;
-	
 }
 
 @property(nonatomic,retain) NSArray *photos;

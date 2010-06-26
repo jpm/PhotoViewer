@@ -48,7 +48,7 @@
 @synthesize photo, imageView=_imageView, scrollView=_scrollView;;
 
 - (id)initWithFrame:(CGRect)frame {
-    if (self = [super initWithFrame:frame]) {
+		if (self = [super initWithFrame:frame]) {
 				
 		self.backgroundColor = [UIColor blackColor];
 		self.userInteractionEnabled = NO; // this will get set when the image is loaded/set
@@ -69,7 +69,7 @@
 		[self addSubview:activityView];
 		[activityView release];	
 	}
-    return self;
+		return self;
 }
 
 - (void)rotateToOrientation:(UIInterfaceOrientation)orientation{
@@ -130,7 +130,7 @@
 
 - (void)prepareForReuse{
 	
-	//  reset view
+	//	reset view
 	self.tag = -1;
 	
 }
@@ -321,14 +321,14 @@
 - (void)dealloc {
 	
 	NSLog(@"dealloc EGOPhotoImageView");
-  
+	
 	[[EGOImageLoader sharedImageLoader] removeObserver:self];
 	[[EGOImageLoader sharedImageLoader] cancelLoadForURL:self.photo.imageURL];
 	
 	[_imageView release]; _imageView=nil;
 	[_scrollView release]; _scrollView=nil;
 	[photo release]; photo=nil;
-    [super dealloc];
+		[super dealloc];
 	
 }
 

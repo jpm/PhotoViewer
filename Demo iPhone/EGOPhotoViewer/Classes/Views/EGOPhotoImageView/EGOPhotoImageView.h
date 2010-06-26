@@ -34,8 +34,7 @@
 	EGOPhotoScrollView *_scrollView;
 	EGOPhoto *photo;
 	UIImageView *_imageView;
-	UIActivityIndicatorView *activityView;
-	
+	UIActivityIndicatorView *activityView;	
 }
 
 @property(nonatomic,retain) EGOPhoto *photo;

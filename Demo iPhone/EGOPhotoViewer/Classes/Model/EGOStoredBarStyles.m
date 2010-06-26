@@ -11,24 +11,24 @@
 @implementation EGOStoredBarStyles
 
 @synthesize statusBarStyle,
-            navBarStyle, navBarTranslucent, navBarTintColor,
-            toolBarStyle, toolBarTranslucent, toolBarTintColor, toolBarHidden;
+						navBarStyle, navBarTranslucent, navBarTintColor,
+						toolBarStyle, toolBarTranslucent, toolBarTintColor, toolBarHidden;
 
 + (id)storeFromController:(UIViewController *)controller {
-  EGOStoredBarStyles *storedStyles = [[[[self class] alloc] init] autorelease];
-  
-  storedStyles.statusBarStyle = [UIApplication sharedApplication].statusBarStyle;
+	EGOStoredBarStyles *storedStyles = [[[[self class] alloc] init] autorelease];
+	
+	storedStyles.statusBarStyle = [UIApplication sharedApplication].statusBarStyle;
 
-  storedStyles.navBarTintColor = controller.navigationController.navigationBar.tintColor;
-  storedStyles.navBarStyle = controller.navigationController.navigationBar.barStyle;
-  storedStyles.navBarTranslucent = controller.navigationController.navigationBar.translucent;
+	storedStyles.navBarTintColor = controller.navigationController.navigationBar.tintColor;
+	storedStyles.navBarStyle = controller.navigationController.navigationBar.barStyle;
+	storedStyles.navBarTranslucent = controller.navigationController.navigationBar.translucent;
 
-  storedStyles.toolBarTintColor = controller.navigationController.toolbar.tintColor;
-  storedStyles.toolBarStyle = controller.navigationController.toolbar.barStyle;
-  storedStyles.toolBarTranslucent = controller.navigationController.toolbar.translucent;
-  storedStyles.toolBarHidden = [controller.navigationController isToolbarHidden];
-  
-  return storedStyles;
+	storedStyles.toolBarTintColor = controller.navigationController.toolbar.tintColor;
+	storedStyles.toolBarStyle = controller.navigationController.toolbar.barStyle;
+	storedStyles.toolBarTranslucent = controller.navigationController.toolbar.translucent;
+	storedStyles.toolBarHidden = [controller.navigationController isToolbarHidden];
+	
+	return storedStyles;
 }
 
 - (void)restoreToController:(UIViewController *)controller withAnimation:(BOOL)isAnimated {
@@ -42,21 +42,21 @@
 		controller.navigationController.toolbar.translucent = self.navBarTranslucent;
 	}
 	
-  #ifdef __IPHONE_3_2
-    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:isAnimated];
-  #else
-    [[UIApplication sharedApplication] setStatusBarHidden:NO animated:isAnimated];
-  #endif  
-  
+	#ifdef __IPHONE_3_2
+		[[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:isAnimated];
+	#else
+		[[UIApplication sharedApplication] setStatusBarHidden:NO animated:isAnimated];
+	#endif	
+	
 	[[UIApplication sharedApplication] setStatusBarStyle:self.statusBarStyle animated:isAnimated];
 	
 	[controller.navigationController setToolbarHidden:self.toolBarHidden animated:isAnimated];
 }
 
 - (void)dealloc {
-  self.navBarTintColor = nil;
-  self.toolBarTintColor = nil;
-  [super dealloc];
+	self.navBarTintColor = nil;
+	self.toolBarTintColor = nil;
+	[super dealloc];
 }
 
 @end

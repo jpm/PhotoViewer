@@ -18,38 +18,38 @@
 @synthesize controller, photo, imageView;
 
 - (id)initWithFrame:(CGRect)frame {
-  if ((self = [super initWithFrame:frame])) {
-    
-    self.layer.borderColor = kThumbBorderColor.CGColor;
-    self.layer.borderWidth = 1;
-    
-    UIImageView *newImageView = [[UIImageView alloc] initWithFrame:self.bounds];
-    newImageView.contentMode = UIViewContentModeScaleAspectFill;
-    newImageView.clipsToBounds = YES;   
-    self.imageView = newImageView;
-    [self addSubview:newImageView];
-    [newImageView release];
-    
-    activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    [self addSubview:activityView];
-    CGFloat activityLeft = (self.frame.size.width - activityView.frame.size.width) / 2;
-    CGFloat activityTop = (self.frame.size.height - activityView.frame.size.height) / 2;
-    activityView.frame = CGRectMake(activityLeft, activityTop, activityView.frame.size.width, activityView.frame.size.height);
-    
-    [self addTarget:self action:@selector(didTouch:) forControlEvents:UIControlEventTouchUpInside];
-  }
-  return self;
+	if ((self = [super initWithFrame:frame])) {
+		
+		self.layer.borderColor = kThumbBorderColor.CGColor;
+		self.layer.borderWidth = 1;
+		
+		UIImageView *newImageView = [[UIImageView alloc] initWithFrame:self.bounds];
+		newImageView.contentMode = UIViewContentModeScaleAspectFill;
+		newImageView.clipsToBounds = YES;	 
+		self.imageView = newImageView;
+		[self addSubview:newImageView];
+		[newImageView release];
+		
+		activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+		[self addSubview:activityView];
+		CGFloat activityLeft = (self.frame.size.width - activityView.frame.size.width) / 2;
+		CGFloat activityTop = (self.frame.size.height - activityView.frame.size.height) / 2;
+		activityView.frame = CGRectMake(activityLeft, activityTop, activityView.frame.size.width, activityView.frame.size.height);
+		
+		[self addTarget:self action:@selector(didTouch:) forControlEvents:UIControlEventTouchUpInside];
+	}
+	return self;
 }
 
 - (void)setPhoto:(EGOPhoto*)aPhoto{	
 	if (aPhoto == nil) return;
-  
+	
 	[photo release], photo = nil;
 	photo = [aPhoto retain];
-  
+	
 	self.imageView.image = [[EGOImageLoader sharedImageLoader] imageForURL:photo.thumbURL shouldLoadWithObserver:self];
 	
-	if (self.imageView.image != nil) {  // Loaded from cache.
+	if (self.imageView.image != nil) {	// Loaded from cache.
 		[activityView stopAnimating];
 	} else {
 		[activityView startAnimating];
@@ -61,9 +61,9 @@
 #pragma mark Button
 
 - (void)didTouch:(id)sender {
-  if (self.controller) {
-    [self.controller didSelectThumbAtIndex:([self tag]-kThumbTagOffset)];
-  }  
+	if (self.controller) {
+		[self.controller didSelectThumbAtIndex:([self tag]-kThumbTagOffset)];
+	}	
 }
 
 #pragma mark -
@@ -72,8 +72,8 @@
 - (void)imageLoaderDidLoad:(NSNotification*)notification {
 	if ([notification userInfo] == nil) return;
 	if(![[[notification userInfo] objectForKey:@"imageURL"] isEqual:self.photo.thumbURL]) return;
-  
-  self.imageView.image = [[notification userInfo] objectForKey:@"image"];
+	
+	self.imageView.image = [[notification userInfo] objectForKey:@"image"];
 	[activityView stopAnimating];
 }
 
@@ -91,11 +91,11 @@
 - (void)dealloc {
 	[[EGOImageLoader sharedImageLoader] removeObserver:self];
 	[[EGOImageLoader sharedImageLoader] cancelLoadForURL:self.photo.thumbURL];
-  
-  self.controller = nil;
-  self.imageView = nil;
-  [activityView release], activityView = nil;
-  [super dealloc];
+	
+	self.controller = nil;
+	self.imageView = nil;
+	[activityView release], activityView = nil;
+	[super dealloc];
 }
 
 

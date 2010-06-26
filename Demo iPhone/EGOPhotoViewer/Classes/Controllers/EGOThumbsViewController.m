@@ -1,9 +1,9 @@
 //
-//	EGOThumbsViewController.m
-//	EGOPhotoViewer
+//  EGOThumbsViewController.m
+//  EGOPhotoViewer
 //
-//	Created by Henrik Nyh on 2010-06-25.
-//	Copyright 2010 Henrik Nyh. All rights reserved.
+//  Created by Henrik Nyh on 2010-06-25.
+//  Copyright 2010 Henrik Nyh. All rights reserved.
 //
 
 #import "EGOThumbsViewController.h"

@@ -53,7 +53,7 @@
 	if (self = [self initWithNibName:@"EGOPhotoViewController" bundle:[NSBundle mainBundle]]) {
 		_photoSource = [aSource retain];
 				
-		//  load photoviews lazily
+		//	load photoviews lazily
 		NSMutableArray *views = [[NSMutableArray alloc] init];
 		for (unsigned i = 0; i < [self.photoSource count]; i++) {
 			[views addObject:[NSNull null]];
@@ -92,7 +92,7 @@
 }
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
+		[super viewDidLoad];
 	
 	self.view.backgroundColor = kPhotoBackgroundColor;
 	self.scrollView.backgroundColor = self.view.backgroundColor;
@@ -108,10 +108,10 @@
 
 - (void)viewWillAppear:(BOOL)animated{
 	[super viewWillAppear:animated];
-  
-  if (!self.storedStyles) {
-    self.storedStyles = [EGOStoredBarStyles storeFromController:self];
-  }
+	
+	if (!self.storedStyles) {
+		self.storedStyles = [EGOStoredBarStyles storeFromController:self];
+	}
 	
 	self.navigationController.navigationBar.tintColor = nil;
 	self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
@@ -130,14 +130,14 @@
 
 - (void)viewWillDisappear:(BOOL)animated{
 	[self killTimer];
-  
-  if (self.storedStyles) {
-    [self.storedStyles restoreToController:self withAnimation:animated];
-  }
+	
+	if (self.storedStyles) {
+		[self.storedStyles restoreToController:self withAnimation:animated];
+	}
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-   	return (UIInterfaceOrientationIsLandscape(interfaceOrientation) || interfaceOrientation == UIInterfaceOrientationPortrait);
+	 	return (UIInterfaceOrientationIsLandscape(interfaceOrientation) || interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
@@ -147,7 +147,7 @@
 		self.scrollView.contentSize = CGSizeMake(480.0f * [self.photoSource count], 320.0f);
 	}
 	
-	//  set side views hidden during rotation animation
+	//	set side views hidden during rotation animation
 	NSInteger count = 0;
 	for (EGOPhotoImageView *view in self.photoViews){
 		if ([view isKindOfClass:[EGOPhotoImageView class]]) {
@@ -179,7 +179,7 @@
 	[self moveToPhotoAtIndex:pageIndex animated:NO];
 	[self.scrollView scrollRectToVisible:((EGOPhotoImageView*)[self.photoViews objectAtIndex:pageIndex]).frame animated:YES];
 	
-	//  unhide side views
+	//	unhide side views
 	for (EGOPhotoImageView *view in self.photoViews){
 		if ([view isKindOfClass:[EGOPhotoImageView class]]) {
 			[view setHidden:NO];
@@ -238,11 +238,11 @@
 }
 
 - (void)setStatusBarHidden:(BOOL)isHidden withAnimation:(BOOL)withAnimation{
-  #ifdef __IPHONE_3_2
-	  [[UIApplication sharedApplication] setStatusBarHidden:isHidden withAnimation:withAnimation];
-  #else
-	  [[UIApplication sharedApplication] setStatusBarHidden:isHidden animated:withAnimation];
-  #endif
+	#ifdef __IPHONE_3_2
+		[[UIApplication sharedApplication] setStatusBarHidden:isHidden withAnimation:withAnimation];
+	#else
+		[[UIApplication sharedApplication] setStatusBarHidden:isHidden animated:withAnimation];
+	#endif
 }
 
 - (void)photoViewDidFinishLoading:(NSNotification*)notification{
@@ -299,7 +299,7 @@
 	[self.scrollView scrollRectToVisible:((EGOPhotoImageView*)[self.photoViews objectAtIndex:index]).frame animated:animated];
 	[self setNavTitle];
 	
-	//  reset any zoomed side views
+	//	reset any zoomed side views
 	if (index + 1 < [self.photoSource count] && (NSNull*)[self.photoViews objectAtIndex:index+1] != [NSNull null]) {
 		[((EGOPhotoImageView*)[self.photoViews objectAtIndex:index+1]) killScrollViewZoom];
 	} 
@@ -312,7 +312,7 @@
 
 - (void)layoutScrollViewSubviewsAnimated:(BOOL)animated{
 	
-    NSInteger page = [self centerPhotoIndex];
+		NSInteger page = [self centerPhotoIndex];
 	CGRect imageFrame = self.scrollView.frame;
 	
 	if (animated) {
@@ -320,21 +320,21 @@
 		[UIView setAnimationDuration:.1];
 	}
 	
-		//  layout center
+		//	layout center
 		if (page >= 0 && page < [self.photoSource count]){
 			if ([self.photoViews objectAtIndex:page] != [NSNull null]){
 				[((EGOPhotoImageView*)[self.photoViews objectAtIndex:page]) setFrame:CGRectMake(imageFrame.size.width * page, 0.0f, imageFrame.size.width, imageFrame.size.height)];
 			}
 		}
 	
-		//  layout left
+		//	layout left
 		if (page-1 >= 0){
-			if (page-1  >= 0 && [self.photoViews objectAtIndex:page -1] != [NSNull null]){
+			if (page-1	>= 0 && [self.photoViews objectAtIndex:page -1] != [NSNull null]){
 				[((EGOPhotoImageView*)[self.photoViews objectAtIndex:page -1]) setFrame:CGRectMake((imageFrame.size.width * (page -1)) - IMAGE_GAP, 0.0f, imageFrame.size.width, imageFrame.size.height)];
 			}
 		}
 		
-		//  layout right
+		//	layout right
 		if (page+1 <= [self.photoSource count]) 
 			if (page+1 < [self.photoSource count] && [self.photoViews objectAtIndex:page +1] != [NSNull null]){
 				[((EGOPhotoImageView*)[self.photoViews objectAtIndex:page +1]) setFrame:CGRectMake((imageFrame.size.width * (page +1)) + IMAGE_GAP, 0.0f, imageFrame.size.width, imageFrame.size.height)];		
@@ -389,13 +389,13 @@
 
 - (void)loadScrollViewWithPage:(NSInteger)page {
 	
-    if (page < 0) return;
-    if (page >= [self.photoSource count]) return;
+		if (page < 0) return;
+		if (page >= [self.photoSource count]) return;
 		
-    // replace the placeholder if necessary 	
+		// replace the placeholder if necessary 	
 	EGOPhotoImageView * photoView = [self.photoViews objectAtIndex:page];
 	if ((NSNull*)photoView == [NSNull null]) {
-		//  recycle an image view if one is free
+		//	recycle an image view if one is free
 		photoView = [self dequeueReusablePhotoView];
 		if (photoView != nil) {
 			[self.photoViews exchangeObjectAtIndex:photoView.tag withObjectAtIndex:page];
@@ -403,7 +403,7 @@
 		}
 	}
 	
-	//  create a new image view if necessary 
+	//	create a new image view if necessary 
 	if (photoView == nil || (NSNull*)photoView == [NSNull null]) {
 		photoView = [[EGOPhotoImageView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.scrollView.bounds.size.width, self.scrollView.bounds.size.height)];
 		photoView.backgroundColor = self.view.backgroundColor;
@@ -414,12 +414,12 @@
 	
 	[photoView setPhoto:((EGOPhoto*)[self.photoSource photoAtIndex:page])];
 
-    // add the image view to the scroll view if necessary
-    if (photoView.superview == nil) {
+		// add the image view to the scroll view if necessary
+		if (photoView.superview == nil) {
 		[self.scrollView addSubview:photoView];
 	}
 	
-	//  layout image views frame
+	//	layout image views frame
 	CGRect frame = self.scrollView.frame;
 	NSInteger centerPageIndex = pageIndex;
 	CGFloat xOrigin = (frame.size.width * page);
@@ -447,8 +447,8 @@
 		[self setNavTitle];
 		[self.captionView setCaptionText:@""];
 		
-		//  rare case: if the user is scrolling quickly scrollViewDidEndDecelerating may no get called
-		//  make sure new center has an image
+		//	rare case: if the user is scrolling quickly scrollViewDidEndDecelerating may no get called
+		//	make sure new center has an image
 		if ((NSNull*)[self.photoViews objectAtIndex:pageIndex] == [NSNull null]) {
 			[self loadScrollViewWithPage:pageIndex];
 		}
@@ -568,10 +568,10 @@
 	[_photoSource release], _photoSource=nil;
 	[_captionView release], _captionView=nil;
 	[_scrollView release], _scrollView=nil;
-  
-  self.storedStyles = nil;
 	
-    [super dealloc];
+	self.storedStyles = nil;
+	
+		[super dealloc];
 }
 
 
