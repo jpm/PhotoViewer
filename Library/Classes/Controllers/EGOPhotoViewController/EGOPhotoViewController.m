@@ -479,7 +479,7 @@
 
 - (void)emailPhoto{
 	MFMailComposeViewController *mailViewController = [[MFMailComposeViewController alloc] init];
-	[mailViewController setSubject:@"Shared Photo"];
+	[mailViewController setSubject:NSLocalizedString(@"Shared photo", @"Email subject when sharing a photo.")];
 	[mailViewController addAttachmentData:[NSData dataWithData:UIImagePNGRepresentation(((EGOPhotoImageView*)[self.photoViews objectAtIndex:pageIndex]).imageView.image)] mimeType:@"png" fileName:@"Photo.png"];
 	mailViewController.mailComposeDelegate = self;
 	[self presentModalViewController:mailViewController animated:YES];
