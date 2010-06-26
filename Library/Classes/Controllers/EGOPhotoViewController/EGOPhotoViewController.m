@@ -409,6 +409,7 @@
 	if (photoView == nil || (NSNull*)photoView == [NSNull null]) {
 		photoView = [[EGOPhotoImageView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.scrollView.bounds.size.width, self.scrollView.bounds.size.height)];
 		photoView.backgroundColor = self.view.backgroundColor;
+		[photoView.scrollView setBackgroundColor:self.view.backgroundColor];
 
 		[self.photoViews replaceObjectAtIndex:page withObject:photoView];
 		[photoView release];

@@ -50,12 +50,10 @@
 - (id)initWithFrame:(CGRect)frame {
 		if (self = [super initWithFrame:frame]) {
 				
-		self.backgroundColor = [UIColor blackColor];
 		self.userInteractionEnabled = NO; // this will get set when the image is loaded/set
 		self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 		
 		_scrollView = [[EGOPhotoScrollView alloc] initWithFrame:self.bounds];
-		_scrollView.backgroundColor = [UIColor blackColor];
 		_scrollView.delegate = self;
 		[self addSubview:_scrollView];
 		

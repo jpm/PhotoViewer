@@ -47,7 +47,6 @@
 		self.bouncesZoom = YES;
 		self.bounces = YES;
 		self.scrollsToTop = NO;
-		self.backgroundColor = [UIColor blackColor];
 		self.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleTopMargin;
 		self.decelerationRate = UIScrollViewDecelerationRateFast;
 		
