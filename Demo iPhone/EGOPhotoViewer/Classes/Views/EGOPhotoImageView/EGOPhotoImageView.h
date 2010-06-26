@@ -45,7 +45,7 @@
 - (void)setPhoto:(EGOPhoto*)aPhoto;
 - (void)killScrollViewZoom;
 - (void)layoutScrollViewAnimated:(BOOL)animated;
-- (void)prepareForReusue;
+- (void)prepareForReuse;
 - (void)rotateToOrientation:(UIInterfaceOrientation)orientation;
 
 @end

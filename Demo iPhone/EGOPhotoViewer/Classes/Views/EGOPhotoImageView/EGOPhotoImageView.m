@@ -128,7 +128,7 @@
 	[self layoutScrollViewAnimated:NO];
 }
 
-- (void)prepareForReusue{
+- (void)prepareForReuse{
 	
 	//  reset view
 	self.tag = -1;

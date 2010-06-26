@@ -400,7 +400,7 @@
 	for (EGOPhotoImageView *view in self.photoViews){
 		if ([view isKindOfClass:[EGOPhotoImageView class]]) {
 			if (count > theIndex+1 || count < theIndex-1) {
-				[view prepareForReusue];
+				[view prepareForReuse];
 				[view removeFromSuperview];
 			} else {
 				view.tag = 0;
