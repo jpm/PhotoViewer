@@ -29,27 +29,31 @@
 
 @implementation EGOPhoto
 
-@synthesize imageURL=_imageURL, imageName=_imageName, image=_image;
+@synthesize imageURL=_imageURL, thumbURL=_thumbURL, image=_image, thumb=_thumb, imageName=_imageName;
 
-- (id)initWithImageURL:(NSURL*)aURL name:(NSString*)aName image:(UIImage*)aImage{
+- (id)initWithImageURL:(NSURL*)aURL thumbURL:(NSURL*)aThumbURL name:(NSString*)aName {
 	
 	if (self = [super init]) {
 		
 		_imageURL=[aURL retain];
+		_thumbURL=[aThumbURL retain];
 		_imageName=[aName retain];
-		_image=[aImage retain];
- 
+    
 	}
-
+  
 	return self;
 }
 
 - (id)initWithImageURL:(NSURL*)aURL name:(NSString*)aName{
-	return [self initWithImageURL:aURL name:aName image:nil];
+	return [self initWithImageURL:aURL thumbURL:nil name:aName];
+}
+
+- (id)initWithImageURL:(NSURL*)aURL thumbURL:(NSURL*)aThumbURL{
+	return [self initWithImageURL:aURL thumbURL:aThumbURL name:nil];
 }
 
 - (id)initWithImageURL:(NSURL*)aURL{
-	return [self initWithImageURL:aURL name:nil image:nil];
+	return [self initWithImageURL:aURL thumbURL:nil name:nil];
 }
 
 - (BOOL)isEqual:(id)object{
@@ -58,8 +62,13 @@
 			return YES;
 		}
 	}
-		 
+  
 	return NO;
+}
+
+// TODO: Remove this! Just for debugging.
+- (NSURL *)thumbURL {
+  return _imageURL;
 }
 
 - (NSString*)description{
@@ -68,8 +77,10 @@
 
 - (void)dealloc{
 	[_imageURL release]; _imageURL=nil;
-	[_imageName release]; _imageName=nil;
+	[_thumbURL release]; _thumbURL=nil;
 	[_image release]; _image=nil;
+	[_thumb release]; _thumb=nil;
+	[_imageName release]; _imageName=nil;
 	
 	[super dealloc];
 }

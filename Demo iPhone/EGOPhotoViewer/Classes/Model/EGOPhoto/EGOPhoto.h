@@ -30,15 +30,20 @@
 @interface EGOPhoto : NSObject {
 	
 	NSURL *_imageURL;
-	NSString *_imageName;
+	NSURL *_thumbURL;
 	UIImage *_image;
-
+	UIImage *_thumb;
+	NSString *_imageName;
+  
 }
 
+
 /*
- * info is already loaded, including image
+ * with thumbmail
  */
-- (id)initWithImageURL:(NSURL*)aURL name:(NSString*)aName image:(UIImage*)aImage;
+
+- (id)initWithImageURL:(NSURL*)aURL thumbURL:(NSURL*)aThumbURL name:(NSString*)aName;
+- (id)initWithImageURL:(NSURL*)aURL thumbURL:(NSURL*)aThumbURL;
 
 /*
  * url and image name
@@ -51,7 +56,9 @@
 - (id)initWithImageURL:(NSURL*)aURL;
 
 @property(nonatomic,retain) NSURL *imageURL;
-@property(nonatomic,retain) NSString *imageName;
+@property(nonatomic,retain) NSURL *thumbURL;
 @property(nonatomic,retain) UIImage *image;
+@property(nonatomic,retain) UIImage *thumb;
+@property(nonatomic,retain) NSString *imageName;
 
 @end

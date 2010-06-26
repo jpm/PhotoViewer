@@ -22,7 +22,6 @@
 - (void)setupScrollViewContentSize;
 - (void)setNavTitle;
 - (void)setStatusBarHidden:(BOOL)isHidden withAnimation:(BOOL)withAnimation;
-- (void)moveToPhotoAtIndex:(NSInteger)index animated:(BOOL)animated;
 - (NSInteger)centerPhotoIndex;
 - (void)queueReusablePhotoViewAtIndex:(NSInteger)theIndex;
 - (void)killTimer;

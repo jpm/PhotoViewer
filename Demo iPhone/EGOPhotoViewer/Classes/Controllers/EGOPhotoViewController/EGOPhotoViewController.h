@@ -41,6 +41,8 @@
 - (id)initWithPhotoSource:(EGOPhotoSource*)aSource;  //  multiple photos
 - (id)initWithImageURL:(NSURL*)aURL;  //  single photo view
 
+- (void)moveToPhotoAtIndex:(NSInteger)index animated:(BOOL)animated;
+
 @property(nonatomic,readonly) EGOPhotoSource *photoSource;
 @property(nonatomic,retain) NSMutableArray *photoViews;
 @property(nonatomic,retain) EGOPhotoCaptionView *captionView;

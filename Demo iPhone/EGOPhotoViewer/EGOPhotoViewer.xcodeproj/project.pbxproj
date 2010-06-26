@@ -32,6 +32,9 @@
 		3A059719110F3D8000258D5E /* EGOPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A059718110F3D8000258D5E /* EGOPhotoViewController.m */; };
 		3A059722110F3DEE00258D5E /* EGOPhotoViewer-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A059721110F3DEE00258D5E /* EGOPhotoViewer-Info.plist */; };
 		3A05973A110F3E8900258D5E /* EGOPhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A059739110F3E8900258D5E /* EGOPhotoViewController.xib */; };
+		AF070FBF11D5F7E200C1EE00 /* EGOThumbImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF070FBE11D5F7E200C1EE00 /* EGOThumbImageView.m */; };
+		AF070FC511D5F90600C1EE00 /* EGOThumbsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF070FC411D5F90600C1EE00 /* EGOThumbsViewController.m */; };
+		AF070FD511D5F96400C1EE00 /* EGOThumbsScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF070FD411D5F96400C1EE00 /* EGOThumbsScrollView.m */; };
 		D071EF5C11025D3F00CB086D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D071EF5B11025D3F00CB086D /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +77,12 @@
 		3A059718110F3D8000258D5E /* EGOPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOPhotoViewController.m; sourceTree = "<group>"; };
 		3A059721110F3DEE00258D5E /* EGOPhotoViewer-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "EGOPhotoViewer-Info.plist"; path = "../EGOPhotoViewer-Info.plist"; sourceTree = "<group>"; };
 		3A059739110F3E8900258D5E /* EGOPhotoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EGOPhotoViewController.xib; sourceTree = "<group>"; };
+		AF070FBD11D5F7E200C1EE00 /* EGOThumbImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOThumbImageView.h; sourceTree = "<group>"; };
+		AF070FBE11D5F7E200C1EE00 /* EGOThumbImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOThumbImageView.m; sourceTree = "<group>"; };
+		AF070FC311D5F90600C1EE00 /* EGOThumbsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOThumbsViewController.h; sourceTree = "<group>"; };
+		AF070FC411D5F90600C1EE00 /* EGOThumbsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOThumbsViewController.m; sourceTree = "<group>"; };
+		AF070FD311D5F96400C1EE00 /* EGOThumbsScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOThumbsScrollView.h; sourceTree = "<group>"; };
+		AF070FD411D5F96400C1EE00 /* EGOThumbsScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOThumbsScrollView.m; sourceTree = "<group>"; };
 		D071EF5B11025D3F00CB086D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -165,6 +174,7 @@
 		3A0596E0110F3D2000258D5E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				AF070FC211D5F8F100C1EE00 /* EGOThumbsViewController */,
 				3A059716110F3D8000258D5E /* EGOPhotoViewController */,
 				3A0596E2110F3D2000258D5E /* RootViewController */,
 			);
@@ -219,6 +229,8 @@
 		3A0596EF110F3D2000258D5E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				AF070FBC11D5F7CA00C1EE00 /* EGOThumbImageView */,
+				AF070FD211D5F94D00C1EE00 /* EgoThumbsScrollView */,
 				3A0596F0110F3D2000258D5E /* EGOPhotoCaptionView */,
 				3A0596F3110F3D2000258D5E /* EGOPhotoImageView */,
 				3A0596F6110F3D2000258D5E /* EGOPhotoScrollView */,
@@ -289,6 +301,33 @@
 				3A059718110F3D8000258D5E /* EGOPhotoViewController.m */,
 			);
 			path = EGOPhotoViewController;
+			sourceTree = "<group>";
+		};
+		AF070FBC11D5F7CA00C1EE00 /* EGOThumbImageView */ = {
+			isa = PBXGroup;
+			children = (
+				AF070FBD11D5F7E200C1EE00 /* EGOThumbImageView.h */,
+				AF070FBE11D5F7E200C1EE00 /* EGOThumbImageView.m */,
+			);
+			name = EGOThumbImageView;
+			sourceTree = "<group>";
+		};
+		AF070FC211D5F8F100C1EE00 /* EGOThumbsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AF070FC311D5F90600C1EE00 /* EGOThumbsViewController.h */,
+				AF070FC411D5F90600C1EE00 /* EGOThumbsViewController.m */,
+			);
+			name = EGOThumbsViewController;
+			sourceTree = "<group>";
+		};
+		AF070FD211D5F94D00C1EE00 /* EgoThumbsScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				AF070FD311D5F96400C1EE00 /* EGOThumbsScrollView.h */,
+				AF070FD411D5F96400C1EE00 /* EGOThumbsScrollView.m */,
+			);
+			name = EgoThumbsScrollView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -371,6 +410,9 @@
 				3A05970A110F3D2700258D5E /* EGOImageLoadConnection.m in Sources */,
 				3A05970B110F3D2700258D5E /* EGOImageLoader.m in Sources */,
 				3A059719110F3D8000258D5E /* EGOPhotoViewController.m in Sources */,
+				AF070FBF11D5F7E200C1EE00 /* EGOThumbImageView.m in Sources */,
+				AF070FC511D5F90600C1EE00 /* EGOThumbsViewController.m in Sources */,
+				AF070FD511D5F96400C1EE00 /* EGOThumbsScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
