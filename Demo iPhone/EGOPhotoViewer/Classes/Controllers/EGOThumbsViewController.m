@@ -59,13 +59,10 @@
 #pragma mark -
 
 - (void)didSelectThumbAtIndex:(NSInteger)index {
-  NSLog(@"did select %i", index);
-  
   EGOPhotoViewController *photoController = [[EGOPhotoViewController alloc] initWithPhotoSource:self.photoSource];
-  [photoController moveToPhotoAtIndex:index animated:NO];
   [self.navigationController pushViewController:photoController animated:YES];
+  [photoController moveToPhotoAtIndex:index animated:NO];
   [photoController release];
-  
 }
 
 #pragma mark -

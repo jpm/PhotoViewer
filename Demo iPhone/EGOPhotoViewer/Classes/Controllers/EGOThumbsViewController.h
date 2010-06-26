@@ -9,7 +9,6 @@
 // TODO:
 // - borders on thumbs
 // - transparent bars (and restore when returning)
-// - rotation
 // - cleanup whitespace
 
 #import <UIKit/UIKit.h>
