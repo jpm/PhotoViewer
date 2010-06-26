@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "EGOImageLoader.h"
+#import "EGOStoredBarStyles.h"
 #import <MessageUI/MessageUI.h>
 
 @class EGOPhotoImageView, EGOPhotoSource, EGOPhoto, EGOPhotoCaptionView;
@@ -26,26 +27,20 @@
 	UIBarButtonItem *leftButton;
 	UIBarButtonItem *rightButton;
 	UIBarButtonItem *actionButton;
-
-	BOOL _storedOldStyles;
-	UIStatusBarStyle _oldStatusBarSyle;
-	UIBarStyle _oldNavBarStyle;
-	BOOL _oldNavBarTranslucent;
-	UIColor* _oldNavBarTintColor;	
-	UIBarStyle _oldToolBarStyle;
-	BOOL _oldToolBarTranslucent;
-	UIColor* _oldToolBarTintColor;	
-	BOOL _oldToolBarHidden;
+  
+  EGOStoredBarStyles *storedStyles;
 }
 
 - (id)initWithPhotoSource:(EGOPhotoSource*)aSource;  //  multiple photos
 - (id)initWithImageURL:(NSURL*)aURL;  //  single photo view
 
+- (void)setStatusBarHidden:(BOOL)isHidden withAnimation:(BOOL)withAnimation;
 - (void)moveToPhotoAtIndex:(NSInteger)index animated:(BOOL)animated;
 
 @property(nonatomic,readonly) EGOPhotoSource *photoSource;
 @property(nonatomic,retain) NSMutableArray *photoViews;
 @property(nonatomic,retain) EGOPhotoCaptionView *captionView;
 @property(nonatomic,retain) IBOutlet UIScrollView *scrollView;
+@property(nonatomic, retain) EGOStoredBarStyles *storedStyles;
 
 @end
