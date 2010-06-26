@@ -78,27 +78,18 @@
 }
 
 - (NSArray*)photoToolbarItems{
-	
-	if ([self.photoSource count] > 1) {
-		
-		actionButton = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(actionButtonHit:)] autorelease];
-		UIBarButtonItem *fixedSpaceCenter = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil] autorelease];
-		fixedSpaceCenter.width = 80.0f;
-		
-		UIBarButtonItem *fixedSpaceRight = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil] autorelease];
-		fixedSpaceRight.width = 30.0f;
-		
-		UIBarButtonItem *flexableSpace = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil] autorelease];
-		leftButton = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"left.png"] style:UIBarButtonItemStylePlain target:self action:@selector(moveBack:)] autorelease];
-		rightButton = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"right.png"] style:UIBarButtonItemStylePlain target:self action:@selector(moveForward:)] autorelease];
-		
-		return [NSArray arrayWithObjects:actionButton, flexableSpace, leftButton, fixedSpaceCenter, rightButton, flexableSpace, fixedSpaceRight, nil];
-	}
-	
-	//  single photo view, remove back/forward buttons
-	UIBarButtonItem *flexableSpace = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil] autorelease];
 	actionButton = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(actionButtonHit:)] autorelease];
-	return [NSArray arrayWithObjects:actionButton, flexableSpace, nil];
+	UIBarButtonItem *fixedSpaceCenter = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil] autorelease];
+	fixedSpaceCenter.width = 80.0f;
+		
+	UIBarButtonItem *fixedSpaceRight = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil] autorelease];
+	fixedSpaceRight.width = 30.0f;
+		
+	UIBarButtonItem *flexableSpace = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil] autorelease];
+	leftButton = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"left.png"] style:UIBarButtonItemStylePlain target:self action:@selector(moveBack:)] autorelease];
+	rightButton = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"right.png"] style:UIBarButtonItemStylePlain target:self action:@selector(moveForward:)] autorelease];
+		
+	return [NSArray arrayWithObjects:actionButton, flexableSpace, leftButton, fixedSpaceCenter, rightButton, flexableSpace, fixedSpaceRight, nil];
 }
 
 - (void)viewDidLoad {
@@ -261,12 +252,8 @@
 }
 
 - (void)setNavTitle{
-	if ([self.photoSource count] > 1) {
-		NSString *formatString = NSLocalizedString(@"%1$i of %2$i", @"Picture X out of Y total.");
-		self.title = [NSString stringWithFormat:formatString, pageIndex+1, [self.photoSource count]];
-	} else {
-		self.title = @"";
-	}
+	NSString *formatString = NSLocalizedString(@"%1$i of %2$i", @"Picture X out of Y total.");
+	self.title = [NSString stringWithFormat:formatString, pageIndex+1, [self.photoSource count]];
 }
 
 - (void)setCaptionTitle{
@@ -323,10 +310,8 @@
 
 	pageIndex = index;
 	
-	if ([self.photoSource count] > 1) {
-		leftButton.enabled = !(index-1 < 0);
-		rightButton.enabled = !(index+1 >= [self.photoSource count]);
-	}
+	leftButton.enabled = !(index-1 < 0);
+	rightButton.enabled = !(index+1 >= [self.photoSource count]);
 		
 	[self queueReusablePhotoViewAtIndex:index];
 	
