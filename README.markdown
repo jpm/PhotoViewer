@@ -1,4 +1,4 @@
-h1. Photo Viewer
+# Photo Viewer
 
 Forked from [enormego's EGOPhotoViewer branch](http://github.com/enormego/PhotoViewer/tree/EGOPhotoViewer).
 
@@ -10,7 +10,7 @@ Open the demo project and run to see how it looks.
 
 For now, you use it in your own project by just including the stuff from the `Library` folder and making sure to include the `QuartzCore` framework in your project. Then just do what the demo project does.
 
-h2. License
+## License
 
 *Photo Viewer* is under the same Apache 2.0 license as *three20*:
 
