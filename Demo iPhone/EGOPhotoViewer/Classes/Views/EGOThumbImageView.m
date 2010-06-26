@@ -7,7 +7,9 @@
 //
 
 #import "EGOThumbImageView.h"
+#import <QuartzCore/QuartzCore.h>
 
+#define kThumbBorderColor [UIColor colorWithWhite:0.85 alpha:1.0]
 // TODO: Replace these.
 #define kPhotoErrorPlaceholder [UIImage imageNamed:@"error_placeholder.png"]
 #define kPhotoLoadingPlaceholder [UIImage imageNamed:@"photo_placeholder.png"]
@@ -19,9 +21,12 @@
 - (id)initWithFrame:(CGRect)frame {
   if ((self = [super initWithFrame:frame])) {
     
+    self.layer.borderColor = kThumbBorderColor.CGColor;
+    self.layer.borderWidth = 1;
+    
     UIImageView *newImageView = [[UIImageView alloc] initWithFrame:self.bounds];
     newImageView.contentMode = UIViewContentModeScaleAspectFill;
-    newImageView.clipsToBounds = YES;
+    newImageView.clipsToBounds = YES;   
     self.imageView = newImageView;
     [self addSubview:newImageView];
     [newImageView release];

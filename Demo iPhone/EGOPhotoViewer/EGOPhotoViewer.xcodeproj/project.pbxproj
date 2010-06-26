@@ -234,7 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				AF070FBC11D5F7CA00C1EE00 /* EGOThumbImageView */,
-				AF070FD211D5F94D00C1EE00 /* EgoThumbsScrollView */,
+				AF070FD211D5F94D00C1EE00 /* EGOThumbsScrollView */,
 				3A0596F0110F3D2000258D5E /* EGOPhotoCaptionView */,
 				3A0596F3110F3D2000258D5E /* EGOPhotoImageView */,
 				3A0596F6110F3D2000258D5E /* EGOPhotoScrollView */,
@@ -325,13 +325,13 @@
 			name = EGOThumbsViewController;
 			sourceTree = "<group>";
 		};
-		AF070FD211D5F94D00C1EE00 /* EgoThumbsScrollView */ = {
+		AF070FD211D5F94D00C1EE00 /* EGOThumbsScrollView */ = {
 			isa = PBXGroup;
 			children = (
 				AF070FD311D5F96400C1EE00 /* EGOThumbsScrollView.h */,
 				AF070FD411D5F96400C1EE00 /* EGOThumbsScrollView.m */,
 			);
-			name = EgoThumbsScrollView;
+			name = EGOThumbsScrollView;
 			sourceTree = "<group>";
 		};
 		AF07106211D6027900C1EE00 /* EGOStoredBarStyles */ = {

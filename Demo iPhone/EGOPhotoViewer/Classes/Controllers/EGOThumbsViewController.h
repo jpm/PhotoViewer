@@ -7,7 +7,7 @@
 //
 
 // TODO:
-// - borders on thumbs
+// - better thumb placeholders
 // - cleanup whitespace
 
 #import <UIKit/UIKit.h>
