@@ -181,6 +181,7 @@
 			name = Libraries;
 			path = ../Library/Libraries;
 			sourceTree = SOURCE_ROOT;
+			usesTabs = 1;
 		};
 		AF278CEB11D61E8B0095ED1B /* EGOCache */ = {
 			isa = PBXGroup;
@@ -210,6 +211,7 @@
 			);
 			name = Classes;
 			sourceTree = "<group>";
+			usesTabs = 1;
 		};
 		AF278CF811D61EB70095ED1B /* Library */ = {
 			isa = PBXGroup;
