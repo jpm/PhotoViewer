@@ -57,4 +57,30 @@
 	[super dealloc];
 }
 
+
+#pragma mark -
+#pragma mark Customization
+// Subclass and override these to customize.
+
+- (UIColor *)backgroundColor{
+	return [UIColor blackColor];
+}
+
+- (UIColor *)thumbnailBackgroundColor{
+	return [UIColor whiteColor];
+}
+
+- (NSInteger)thumbnailSize{
+	return 75;
+}
+
+- (UIViewContentMode)thumbnailContentMode{
+	return UIViewContentModeScaleAspectFill;
+}
+
+- (BOOL)thumbnailsHaveBorder{
+	return YES;
+}
+
+
 @end

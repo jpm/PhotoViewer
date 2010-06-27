@@ -13,7 +13,6 @@
 #import "EGOPhotoSource.h"
 #import "EGOPhotoCaptionView.h"
 
-#define kPhotoBackgroundColor [UIColor blackColor]
 #define IMAGE_GAP 30
 
 @interface EGOPhotoViewController (Private)
@@ -94,9 +93,9 @@
 }
 
 - (void)viewDidLoad {
-		[super viewDidLoad];
+	[super viewDidLoad];
 	
-	self.view.backgroundColor = kPhotoBackgroundColor;
+	self.view.backgroundColor = [self.photoSource backgroundColor];
 	self.scrollView.backgroundColor = self.view.backgroundColor;
 	self.scrollView.opaque = YES;
 	self.wantsFullScreenLayout = YES;

@@ -21,6 +21,7 @@
 }
 
 - (void)setPhoto:(EGOPhoto*)aPhoto;
+- (void)addBorder;
 
 @property(nonatomic,retain) EGOPhoto *photo;
 @property(nonatomic,retain) UIImageView *imageView;

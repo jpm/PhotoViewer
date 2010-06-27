@@ -13,7 +13,6 @@
 
 @implementation EGOThumbsScrollView
 
-#define kThumbSize 75
 #define kThumbMinimumSpace 3
 
 @synthesize controller, photoSource;
@@ -32,11 +31,12 @@
 	laidOutForOrientation = self.controller.interfaceOrientation;
 	
 	int viewWidth = self.bounds.size.width;
+	int thumbSize = [self.photoSource thumbnailSize];
 	
-	int itemsPerRow = floor((viewWidth - kThumbMinimumSpace) / (kThumbSize + kThumbMinimumSpace));	
+	int itemsPerRow = floor((viewWidth - kThumbMinimumSpace) / (thumbSize + kThumbMinimumSpace));	
 	if (itemsPerRow < 1) itemsPerRow = 1;	// Ensure at least one per row.
 	
-	int spaceWidth = round((viewWidth - kThumbSize * itemsPerRow) / (itemsPerRow + 1));
+	int spaceWidth = round((viewWidth - thumbSize * itemsPerRow) / (itemsPerRow + 1));
 	int spaceHeight = spaceWidth;
 	
 	int x = spaceWidth;
@@ -46,7 +46,7 @@
 	
 	int photoCount = [self.photoSource count];
 	int rowCount = ceil(photoCount / (float)itemsPerRow);
-	int rowHeight = kThumbSize + spaceHeight;
+	int rowHeight = thumbSize + spaceHeight;
 	CGSize contentSize = CGSizeMake(viewWidth, (rowHeight * rowCount + spaceHeight));
 	
 	self.contentSize = contentSize;
@@ -57,10 +57,16 @@
 		int tag = kThumbTagOffset + i;
 		
 		EGOThumbImageView *thumbView = (EGOThumbImageView *)[self viewWithTag:tag];
-		CGRect thumbFrame = CGRectMake(x, y, kThumbSize, kThumbSize);
+		CGRect thumbFrame = CGRectMake(x, y, thumbSize, thumbSize);
 		if (!thumbView) {		
 			EGOPhoto *photo = [self.photoSource photoAtIndex:i];
 			thumbView = [[EGOThumbImageView alloc] initWithFrame:thumbFrame];
+			
+      if ([self.photoSource thumbnailsHaveBorder]) {
+        [thumbView addBorder];
+      }
+      thumbView.imageView.contentMode = [self.photoSource thumbnailContentMode];
+			
 			thumbView.photo = photo;
 			thumbView.controller = self.controller;
 			thumbView.tag = tag;	// Used when thumb is tapped.
@@ -73,9 +79,9 @@
 		if ((i+1) % itemsPerRow == 0) {
 			// Start new row.
 			x = spaceWidth;
-			y += kThumbSize + spaceHeight;
+			y += thumbSize + spaceHeight;
 		} else {
-			x += kThumbSize + spaceWidth;
+			x += thumbSize + spaceWidth;
 		}
 	}
 	

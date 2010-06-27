@@ -39,4 +39,11 @@
 - (EGOPhoto*)photoAtIndex:(NSInteger)index;
 - (NSInteger)count;
 
+// Override these in a subclass to customize.
+- (UIColor *)backgroundColor;
+- (UIColor *)thumbnailBackgroundColor;
+- (NSInteger)thumbnailSize;
+- (UIViewContentMode)thumbnailContentMode;
+- (BOOL)thumbnailsHaveBorder;
+
 @end

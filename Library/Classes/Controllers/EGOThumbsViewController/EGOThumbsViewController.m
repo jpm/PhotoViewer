@@ -34,9 +34,8 @@
 	
 }
 
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
-	[super viewDidLoad]; 
+	self.view.backgroundColor = [self.photoSource thumbnailBackgroundColor];
 }
 
 - (void)viewWillAppear:(BOOL)animated{

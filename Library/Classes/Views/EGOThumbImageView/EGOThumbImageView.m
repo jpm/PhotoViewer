@@ -20,9 +20,6 @@
 - (id)initWithFrame:(CGRect)frame {
 	if ((self = [super initWithFrame:frame])) {
 		
-		self.layer.borderColor = kThumbBorderColor.CGColor;
-		self.layer.borderWidth = 1;
-		
 		UIImageView *newImageView = [[UIImageView alloc] initWithFrame:self.bounds];
 		newImageView.contentMode = UIViewContentModeScaleAspectFill;
 		newImageView.clipsToBounds = YES;	 
@@ -55,6 +52,11 @@
 		[activityView startAnimating];
 		self.imageView.image = kPhotoLoadingPlaceholder;
 	}
+}
+
+- (void)addBorder{
+	self.layer.borderColor = kThumbBorderColor.CGColor;
+	self.layer.borderWidth = 1;
 }
 
 #pragma mark -

@@ -35,6 +35,7 @@
 		if (self = [super initWithFrame:frame]) {
 				// Initialization code
 		
+		self.backgroundColor = [UIColor redColor];
 		self.scrollEnabled = YES;
 		self.pagingEnabled = NO;
 		self.clipsToBounds = NO;
