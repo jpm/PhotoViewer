@@ -45,7 +45,7 @@
 		self.storedStyles = [EGOStoredBarStyles storeFromController:self];
 	}
 	
-	self.navigationController.navigationBar.tintColor = nil;
+	self.navigationController.navigationBar.tintColor = [self.photoSource navigationBarTintColor];
 	self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
 	self.navigationController.navigationBar.translucent = YES;
 	

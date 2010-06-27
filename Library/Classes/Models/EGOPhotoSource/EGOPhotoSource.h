@@ -40,6 +40,8 @@
 - (NSInteger)count;
 
 // Override these in a subclass to customize.
+
+- (UIColor *)navigationBarTintColor;
 - (UIColor *)backgroundColor;
 - (UIColor *)thumbnailBackgroundColor;
 - (NSInteger)thumbnailSize;

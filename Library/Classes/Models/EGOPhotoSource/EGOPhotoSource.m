@@ -62,6 +62,10 @@
 #pragma mark Customization
 // Subclass and override these to customize.
 
+- (UIColor *)navigationBarTintColor {
+	return nil;
+}
+
 - (UIColor *)backgroundColor{
 	return [UIColor blackColor];
 }
