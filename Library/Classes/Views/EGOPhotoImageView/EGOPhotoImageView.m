@@ -50,7 +50,7 @@
 - (id)initWithFrame:(CGRect)frame {
 		if (self = [super initWithFrame:frame]) {
 				
-		self.userInteractionEnabled = NO; // this will get set when the image is loaded/set
+		self.userInteractionEnabled = YES;
 		self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 		
 		_scrollView = [[EGOPhotoScrollView alloc] initWithFrame:self.bounds];
@@ -112,14 +112,13 @@
 	
 	if (self.imageView.image != nil) {
 		[activityView stopAnimating];
-		self.userInteractionEnabled = YES;
 		[self.scrollView enableZooming];
 		
 		[[NSNotificationCenter defaultCenter] postNotificationName:@"EGOPhotoDidFinishLoading" object:[NSDictionary dictionaryWithObjectsAndKeys:self.photo, @"photo", [NSNumber numberWithBool:NO], @"failed", nil]];
 		
 	} else {
 		[activityView startAnimating];
-		self.userInteractionEnabled= NO;
+		[self.scrollView disableZooming];
 		self.imageView.image = kPhotoLoadingPlaceholder;
 	}
 	
@@ -141,7 +140,6 @@
 
 	[[self layer] addAnimation:[self fadeAnimation] forKey:@"opacity"];
 	
-	self.userInteractionEnabled = YES;
 	[self.scrollView enableZooming];
 
 }
@@ -195,7 +193,6 @@
 	
 	self.imageView.image = kPhotoErrorPlaceholder;
 	[self layoutScrollViewAnimated:NO];
-	self.userInteractionEnabled = YES;
 	[self.scrollView disableZooming];
 	[activityView stopAnimating];
 	
