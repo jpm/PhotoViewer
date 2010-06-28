@@ -63,6 +63,7 @@
 		[_scrollView addSubview:_imageView];
 
 		activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+		activityView.userInteractionEnabled = NO;  // Spinner passes on tap events to image.
 		activityView.frame = CGRectMake((CGRectGetWidth(self.frame) / 2) - 11.0f, (CGRectGetHeight(self.frame) / 2) + 80.0f , 22.0f, 22.0f);
 		[self addSubview:activityView];
 		[activityView release];	

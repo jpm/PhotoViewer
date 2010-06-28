@@ -28,6 +28,7 @@
 		[newImageView release];
 		
 		activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+		activityView.userInteractionEnabled = NO;  // Spinner passes on tap events to image.
 		[self addSubview:activityView];
 		CGFloat activityLeft = (self.frame.size.width - activityView.frame.size.width) / 2;
 		CGFloat activityTop = (self.frame.size.height - activityView.frame.size.height) / 2;
