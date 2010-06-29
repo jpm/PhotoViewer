@@ -27,8 +27,6 @@
 #import "EGOPhotoScrollView.h"
 #import "EGOPhotoImageView.h"
 
-#define kMaximumZoomScale 3.0f
-
 @implementation EGOPhotoScrollView
 
 - (id)initWithFrame:(CGRect)frame {
@@ -39,7 +37,7 @@
 		self.scrollEnabled = YES;
 		self.pagingEnabled = NO;
 		self.clipsToBounds = NO;
-		self.maximumZoomScale = kMaximumZoomScale;
+		self.maximumZoomScale = 1.0f;  // Will be set from EGOPhotoImageView.
 		self.minimumZoomScale = 1.0f;
 		self.showsVerticalScrollIndicator = NO;
 		self.showsHorizontalScrollIndicator = NO;
@@ -61,14 +59,18 @@
 		//	zoom out
 		[((EGOPhotoImageView*)self.superview) killScrollViewZoom];
 	} else {
+		
+		CGFloat zoomToScale = 1.85;
+		CGFloat rectSide = self.contentSize.width / zoomToScale;
+		
 		//	zoom in
-		CGFloat xCoor = center.x - 50.0f;
-		CGFloat yCoor = center.y - 50.0f;
+		CGFloat xCoor = center.x - rectSide;
+		CGFloat yCoor = center.y - rectSide;
 		
 		if (xCoor < 0.0f) xCoor = 0.0f;
 		if (yCoor < 0.0f) yCoor = 0.0f;
 					
-		[self zoomToRect:CGRectMake(xCoor, yCoor, 50.0f, 50.0f) animated:YES];
+		[self zoomToRect:CGRectMake(xCoor, yCoor, rectSide, rectSide) animated:YES];
 		
 	}
 }
@@ -98,13 +100,19 @@
 
 #pragma mark -
 #pragma mark Disable/enabling zooming
+// FIXME: There is a bug somewhere. Page to a failed image and you can't zoom. Page away then back and you can.
 
 - (void)disableZooming {
+	if (!storedMaxZoomScale) {  // Guard against setting to 1.0 if we disable twice.
+		storedMaxZoomScale = self.maximumZoomScale;
+	}
 	self.maximumZoomScale = 1.0;
 }
 
 - (void)enableZooming {
-	self.maximumZoomScale = kMaximumZoomScale;
+	if (storedMaxZoomScale) {
+		self.maximumZoomScale = storedMaxZoomScale;
+	}
 }
 
 #pragma mark -

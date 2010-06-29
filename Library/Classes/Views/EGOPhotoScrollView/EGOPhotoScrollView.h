@@ -28,6 +28,7 @@
 
 
 @interface EGOPhotoScrollView : UIScrollView {
+	CGFloat storedMaxZoomScale;
 }
 
 - (void)disableZooming;

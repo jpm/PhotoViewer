@@ -157,6 +157,9 @@
 	
 	CGFloat factor = MAX(hfactor, vfactor);
 	
+	CGFloat maxZoomScale = MAX(factor, 2.0);  // Zooming less than 2.0 just looks weird.
+	self.scrollView.maximumZoomScale = maxZoomScale;
+	
 	CGFloat newWidth = self.imageView.image.size.width / factor;
 	CGFloat newHeight = self.imageView.image.size.height / factor;
 	
@@ -194,6 +197,7 @@
 	
 	self.imageView.image = kPhotoErrorPlaceholder;
 	[self layoutScrollViewAnimated:NO];
+
 	[self.scrollView disableZooming];
 	[activityView stopAnimating];
 	
