@@ -239,11 +239,12 @@
 }
 
 - (void)setStatusBarHidden:(BOOL)isHidden withAnimation:(BOOL)withAnimation{
-	#ifdef __IPHONE_3_2
+	if ([[UIApplication sharedApplication] respondsToSelector:@selector(setStatusBarHidden:withAnimation:)]) {
 		[[UIApplication sharedApplication] setStatusBarHidden:isHidden withAnimation:withAnimation];
-	#else
-		[[UIApplication sharedApplication] setStatusBarHidden:isHidden animated:withAnimation];
-	#endif
+	} else {  // Deprecated in iOS 3.2+.
+		id sharedApp = [UIApplication sharedApplication];  // Get around deprecation warnings.
+		[sharedApp setStatusBarHidden:isHidden animated:withAnimation];
+	}
 }
 
 - (void)photoViewDidFinishLoading:(NSNotification*)notification{

@@ -42,11 +42,12 @@
 		controller.navigationController.toolbar.translucent = self.navBarTranslucent;
 	}
 	
-	#ifdef __IPHONE_3_2
+	if ([[UIApplication sharedApplication] respondsToSelector:@selector(setStatusBarHidden:withAnimation:)]) {
 		[[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:isAnimated];
-	#else
-		[[UIApplication sharedApplication] setStatusBarHidden:NO animated:isAnimated];
-	#endif	
+	} else {  // Deprecated in iOS 3.2+.
+		id sharedApp = [UIApplication sharedApplication];  // Get around deprecation warnings.
+		[sharedApp setStatusBarHidden:NO animated:isAnimated];
+	}	
 	
 	[[UIApplication sharedApplication] setStatusBarStyle:self.statusBarStyle animated:isAnimated];
 	
