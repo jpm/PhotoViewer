@@ -61,11 +61,11 @@
 	} else {
 		
 		CGFloat zoomToScale = 1.85;
-		CGFloat rectSide = self.contentSize.width / zoomToScale;
+		CGFloat rectSide = MIN(self.contentSize.width, self.contentSize.height) / zoomToScale;
 		
 		//	zoom in
-		CGFloat xCoor = center.x - rectSide;
-		CGFloat yCoor = center.y - rectSide;
+		CGFloat xCoor = center.x - rectSide / 2.0;
+		CGFloat yCoor = center.y - rectSide / 2.0;
 		
 		if (xCoor < 0.0f) xCoor = 0.0f;
 		if (yCoor < 0.0f) yCoor = 0.0f;
