@@ -11,7 +11,17 @@
 
 @implementation EGOThumbsViewController
 
-@synthesize photoSource=_photoSource, storedStyles;
+@synthesize photoSource=_photoSource, storedStyles, delegate;
+
+
+- (id)initWithPhotoSource:(EGOPhotoSource*)aSource withEditingEnabled:(BOOL)enabled {
+    self = [self initWithPhotoSource:aSource];
+    if (enabled) {
+        self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    }
+    
+    return self;
+}
 
 - (id)initWithPhotoSource:(EGOPhotoSource*)aSource {
 	if (self = [super init]) {
@@ -23,6 +33,11 @@
 		
 	}
 	return self;
+}
+
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated {
+    [super setEditing:editing animated:animated];
+    [_scrollView setEditing:editing];
 }
 
 - (void)loadView {
@@ -76,6 +91,12 @@
 
 
 #pragma mark -
+
+- (void)didSelectThumbAtIndexToDelete:(NSInteger)index {
+    if ([delegate respondsToSelector:@selector(egoThumbsViewController:didDeleteThumbAtIndex:)]) {
+        [delegate egoThumbsViewController:self didDeleteThumbAtIndex:index];
+    }
+}
 
 - (void)didSelectThumbAtIndex:(NSInteger)index {
 	EGOPhotoViewController *photoController = [[EGOPhotoViewController alloc] initWithPhotoSource:self.photoSource];

@@ -37,6 +37,7 @@
 
 - (id)initWithEGOPhotos:(NSArray*)photos;
 - (EGOPhoto*)photoAtIndex:(NSInteger)index;
+- (void)removePhotoAtIndex:(NSInteger)index;
 - (NSInteger)count;
 
 // Override these in a subclass to customize.

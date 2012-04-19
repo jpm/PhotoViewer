@@ -44,6 +44,13 @@
 	return [self.photos objectAtIndex:index];
 }
 
+- (void)removePhotoAtIndex:(NSInteger)index {
+    EGOPhoto *remove = [self photoAtIndex:index];
+    NSMutableArray *newList = [NSMutableArray arrayWithArray:_photos];
+    [newList removeObject:remove];
+    _photos = [[NSArray arrayWithArray:newList] retain];
+}
+
 - (NSInteger)count{
 	return [self.photos count];
 }

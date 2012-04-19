@@ -14,9 +14,13 @@
 	EGOPhotoSource *photoSource;
 	EGOThumbsViewController *controller;
 	UIInterfaceOrientation laidOutForOrientation;
+    BOOL editing;
 }
 
 @property(nonatomic, retain) EGOPhotoSource *photoSource;
 @property(nonatomic,assign) EGOThumbsViewController *controller;
+@property(nonatomic,assign) BOOL editing;
+
+- (void)setEditing:(BOOL)newEditing;
 
 @end

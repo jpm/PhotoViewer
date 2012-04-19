@@ -12,6 +12,7 @@
 #import "EGOThumbsViewController.h"
 
 #define kThumbTagOffset 1000	// We need this since tag 0 is otherwise shared between thumb 0 and its superview
+#define kThumbDeleteTagOffset 99999	// We need this to keep track of which photo is being deleted
 
 @interface EGOThumbImageView : UIControl <EGOImageLoaderObserver> {
 	EGOPhoto *photo;

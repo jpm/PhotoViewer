@@ -15,12 +15,18 @@
 
 #define kThumbMinimumSpace 3
 
-@synthesize controller, photoSource;
+@synthesize controller, photoSource, editing;
 
 - (id)initWithFrame:(CGRect)frame {
 	if ((self = [super initWithFrame:frame])) {
 	}
 	return self;
+}
+
+- (void)setEditing:(BOOL)newEditing {
+	editing = newEditing;
+    laidOutForOrientation = 0;
+    [self layoutSubviews];
 }
 
 - (void)layoutSubviews {
@@ -74,7 +80,20 @@
 			[thumbView release];
 		}
 		thumbView.frame = thumbFrame;
-		
+
+        int deleteTag = kThumbDeleteTagOffset + i;
+        if (editing) {
+            UIButton *b = [UIButton buttonWithType:UIButtonTypeCustom];
+            b.tag = deleteTag;
+            b.frame = CGRectMake(0.0f, 0.0f, 16.0f, 16.0f);
+            [b setImage:[UIImage imageNamed:@"close_16.gif"] forState:UIControlStateNormal];
+            [b addTarget:self action:@selector(didTapDeleteButton:) forControlEvents:UIControlEventTouchUpInside];
+            [thumbView addSubview:b];
+        } else {
+            UIButton *b = (UIButton *)[self viewWithTag:deleteTag];
+            [b removeFromSuperview];
+        }
+
 		// Set the position of the next thumb.
 		if ((i+1) % itemsPerRow == 0) {
 			// Start new row.
@@ -85,6 +104,28 @@
 		}
 	}
 	
+}
+
+- (void)didTapDeleteButton:(id)sender {
+    UIButton *b = (UIButton *)sender;
+    int deleteTag = b.tag;
+    int index = deleteTag - kThumbDeleteTagOffset;
+    
+    NSUInteger totalPhotos = [self.photoSource count];
+    
+    [photoSource removePhotoAtIndex:index];
+    if ([controller respondsToSelector:@selector(didSelectThumbAtIndexToDelete:)]) {
+        [controller didSelectThumbAtIndexToDelete:index];
+    }
+    
+    for (int i = 0; i < totalPhotos; i++) {
+		int tag = kThumbTagOffset + i;
+		EGOThumbImageView *thumbView = (EGOThumbImageView *)[self viewWithTag:tag];
+        [thumbView removeFromSuperview];
+    }
+    
+    laidOutForOrientation = 0;
+    [self layoutSubviews];
 }
 
 - (void)dealloc {
