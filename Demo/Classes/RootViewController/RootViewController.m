@@ -41,7 +41,7 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	return 3;
+	return 4;
 }
 
 
@@ -58,8 +58,10 @@
 		cell.textLabel.text = @"Photos";
 	} else if (indexPath.row == 1) {
 		cell.textLabel.text = @"Single Photo";
-	} else {
+	} else if (indexPath.row == 2) {
 		cell.textLabel.text = @"Thumbs";
+	} else {
+		cell.textLabel.text = @"Thumbs (edit enabled)";
 	}
 	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 	
@@ -103,7 +105,12 @@
 																																																 photo, photo2, photo3, photo4, 
 																																																 nil]];
 		
-		EGOThumbsViewController *thumbsController = [[EGOThumbsViewController alloc] initWithPhotoSource:source];
+		EGOThumbsViewController *thumbsController;
+		if (indexPath.row == 2) {
+			thumbsController = [[EGOThumbsViewController alloc] initWithPhotoSource:source];
+		} else {
+			thumbsController = [[EGOThumbsViewController alloc] initWithPhotoSource:source withEditingEnabled:YES];
+		}
 		[self.navigationController pushViewController:thumbsController animated:YES];
 		[thumbsController release];
 		[source release];		
