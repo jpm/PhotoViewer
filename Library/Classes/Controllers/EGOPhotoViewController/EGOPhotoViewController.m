@@ -561,8 +561,6 @@
 
 - (void)dealloc {
 	
-	NSLog(@"dealloc photocontroller");
-	
 	[[NSNotificationCenter defaultCenter] removeObserver:self name:@"EGOPhotoDidFinishLoading" object:nil];
 	[[NSNotificationCenter defaultCenter] removeObserver:self name:@"EGOPhotoViewToggleBars" object:nil];
 	
