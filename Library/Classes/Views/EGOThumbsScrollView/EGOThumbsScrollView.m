@@ -62,10 +62,10 @@
 			EGOPhoto *photo = [self.photoSource photoAtIndex:i];
 			thumbView = [[EGOThumbImageView alloc] initWithFrame:thumbFrame];
 			
-      if ([self.photoSource thumbnailsHaveBorder]) {
-        [thumbView addBorder];
-      }
-      thumbView.imageView.contentMode = [self.photoSource thumbnailContentMode];
+			if ([self.photoSource thumbnailsHaveBorder]) {
+				[thumbView addBorder];
+			}
+			thumbView.imageView.contentMode = [self.photoSource thumbnailContentMode];
 			
 			thumbView.photo = photo;
 			thumbView.controller = self.controller;
