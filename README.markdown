@@ -1,10 +1,12 @@
 # Photo Viewer
 
-Forked from [enormego's EGOPhotoViewer branch](http://github.com/enormego/PhotoViewer/tree/EGOPhotoViewer).
+Forked from [henrik's PhotoViewer](https://github.com/henrik/PhotoViewer) which is forked from [enormego's EGOPhotoViewer branch](http://github.com/enormego/PhotoViewer).
 
 Originally based on Facebook's three20 library, now rewritten.
 
 Features an optional thumbnail view, rotation, zooming, loading spinners and a "failed to load" error image on failure.
+
+This fork now includes an "edit mode" feature for the thumbnail view.
 
 Open the demo project and run to see how it looks.
 
